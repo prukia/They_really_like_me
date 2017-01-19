@@ -35,13 +35,18 @@ function displayBio(bios) {
 function votes()  {
   $.ajax({
     url: '/bio',
-    type: 'GET',
+    type: 'POST',
     success: displayVotes
   });
 
 }
 
 function displayVotes() {
+  $.ajax({
+    url: '/bio',
+    type: 'GET',
+    success: updateVotes
+
 
 }
 

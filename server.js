@@ -14,7 +14,11 @@ app.get('/', function (req, res){
 app.get('/bio', function (req, res) {
   res.send(bio);
 });
+app.post('/bio', function (req,res){
+  console.log('req.body', req.body);
 
+
+})
 app.listen(3000);
 
 
