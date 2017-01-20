@@ -1,16 +1,12 @@
-var nolan = 0;
-var rukia = 0;
-var charlie =0;
-var person = 0;
 $(function(){
   console.log('document loaded up');
 
-  $('button').on('click', updateVotes){
-    votes();
+  $('button').on('click', event, updateVotes);
+    // votes();
     person = $(this).data('name');
-  });
 
-  getBio();
+    updateVotes();
+    getBio();
 });
 
 
@@ -32,18 +28,18 @@ function displayBio(bios) {
   });
 }
 
-function votes()  {
-  $.ajax({
-    url: '/bio',
-    type: 'POST',
-    success: displayVotes
-  });
-
-}
+// function votes()  {
+//   $.ajax({
+//     url: '/bio',
+//     type: 'POST',
+//     success: displayVotes
+//   });
+//
+// }
 
 function displayVotes() {
   $.ajax({
-    url: '/bio',
+    url: '/likes',
     type: 'GET',
     success: updateVotes
 
@@ -54,20 +50,9 @@ function displayVotes() {
 
 function updateVotes(event){
   $.ajax({
-    url: '/bio',
+    url: '/likes',
     type: 'POST',
     data: person = $(this).data('name'),
-    sucess: displayVotes
+    success: displayVotes
+})
 }
-
-  // function likeCounter() {
-  //   if (person == 'nolan'){
-  //     nolan++;
-  //   }else if (person == 'rukia') {
-  //     rukia++;
-  //   }else if (person == 'charlie') {
-  //     charlie++;
-  //   }
-  //
-  //   }
-  // }
