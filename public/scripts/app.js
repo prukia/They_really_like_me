@@ -1,12 +1,10 @@
+var person = 0;
 $(function(){
   console.log('document loaded up');
 
-  $('button').on('click', event, updateVotes);
-    // votes();
-    person = $(this).data('name');
+  $('#person').on('click','button', event, updateVotes)
 
-    updateVotes();
-    getBio();
+  getBio();
 });
 
 
@@ -38,21 +36,26 @@ function displayBio(bios) {
 // }
 
 function displayVotes() {
+  console.log("TESTED");
   $.ajax({
     url: '/likes',
     type: 'GET',
-    success: updateVotes
+    success: appendVotes
+});
+}
 
-
-
-})
+function appendVotes(votes) {
+  $("#Nolan").text(votes.nolan);
+  $("#Charlie").text(votes.charlie);
+  $("#Rukia").text(votes.rukia);
 }
 
 function updateVotes(event){
+
   $.ajax({
-    url: '/likes',
+    url: '/bio',
     type: 'POST',
     data: person = $(this).data('name'),
     success: displayVotes
-})
+});
 }
