@@ -7,8 +7,23 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>iDunno Express Challenge</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
+    <script language="javascript">
+    $('button').on('click', function(){
+      if($(this).data('name')=='Charlie'){playIt();
+        console.log('Charlie');
+      };
+    })
+    function playIt()
+    {
+       document.getElementById("embed").innerHTML="<embed src='/views/cheesy.m4a' autostart=true loop=false volume=100 hidden=true>";
+       return true;
+    }
+    </script>
   </head>
+
 <body>
+  <div class="centered">
 <h1>Express Challenge</h1>
 <ul id="person">
   <p>Total Votes for Nolan: <span id="Nolan">0</span></p>
@@ -19,6 +34,9 @@
 <div class="container">
 
 </div>
+</div>
+<div id="embed"></div>
+<button type="button" onclick="playIt()">play</button>
 </body>
 
 </html>

@@ -2,8 +2,10 @@ var person = 0;
 $(function(){
   console.log('document loaded up');
 
-  $('#person').on('click','button', event, updateVotes)
+  $('#person').on('click','button', updateVotes)
 
+  //we do not need 'event next to button'
+  displayVotes();
   getBio();
 });
 
@@ -51,11 +53,15 @@ function appendVotes(votes) {
 }
 
 function updateVotes(event){
-
+  //person === 'Nolan'
+var person = $(this).data('name');
   $.ajax({
-    url: '/bio',
+    url: '/likes',
+    //add person to above line
     type: 'POST',
-    data: person = $(this).data('name'),
+    //created an object with name of person
+    data: {name: person},
+    //and you can delete the above line
     success: displayVotes
 });
 }
