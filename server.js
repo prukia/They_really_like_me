@@ -16,6 +16,16 @@ app.get('/bio', function (req, res) {
 });
 app.post('/bio', function (req,res){
   console.log('req.body', req.body);
+  function likeCounter() {
+    if (person == 'nolan'){
+      nolan++;
+    }else if (person == 'rukia') {
+      rukia++;
+    }else if (person == 'charlie') {
+      charlie++;
+    }
+
+    }
 
 
 })

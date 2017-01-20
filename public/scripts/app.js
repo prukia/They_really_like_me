@@ -5,7 +5,7 @@ var person = 0;
 $(function(){
   console.log('document loaded up');
 
-  $('button').on('click', function(){
+  $('button').on('click', updateVotes){
     votes();
     person = $(this).data('name');
   });
@@ -48,6 +48,16 @@ function displayVotes() {
     success: updateVotes
 
 
+
+})
+}
+
+function updateVotes(event){
+  $.ajax({
+    url: '/bio',
+    type: 'POST',
+    data: person = $(this).data('name'),
+    sucess: displayVotes
 }
 
   // function likeCounter() {
