@@ -22,7 +22,6 @@ app.post('/bio', function (req, res){
   console.log('req.body', Object.keys(req.body)[0]);
   var person =  Object.keys(req.body)[0];
     if (person == 'Nolan'){
-      console.log("test");
       nolan++;
       res.sendStatus(200);
     }else if (person == 'Rukia') {
